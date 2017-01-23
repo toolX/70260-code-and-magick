@@ -22,10 +22,8 @@ window.renderStatistics = function (ctx, names, times) {
 
   function splitText(text) {
     var textArray = text.split('\n');
-    var gap = 20;
     for (var i = 0; i < textArray.length; i++) {
-      drawText(textArray[i], 120, 25 + gap, 'bottom');
-      gap += gap;
+      drawText(textArray[i], 120, 45 + 20 * i, 'bottom');
     }
   }
 
@@ -48,7 +46,7 @@ window.renderStatistics = function (ctx, names, times) {
   splitText(message);
 
   for (var i = 0; i < names.length; i++) {
-    var barLeftEdge = windowLeftEdge + windowPadding;
+    var barLeftEdge = windowLeftEdge + windowPadding + 90 * i;
     var barBottomEdge = windowBottomEdge - textPadding;
     var barTopEdge = barBottomEdge - scaleTimes[i];
     var color;
@@ -65,6 +63,6 @@ window.renderStatistics = function (ctx, names, times) {
 
     drawText(names[i], barLeftEdge, barBottomEdge, 'top');
 
-    windowPadding = windowPadding + barWidth + 50;
+    //windowPadding = windowPadding + barWidth + 50;
   }
 };
