@@ -58,11 +58,7 @@ window.renderStatistics = function (ctx, names, times) {
     }
 
     drawRect(barLeftEdge, barTopEdge, barWidth, scaleTimes[i], color);
-
     drawText(Math.ceil(times[i]), barLeftEdge, barTopEdge, 'bottom');
-
     drawText(names[i], barLeftEdge, barBottomEdge, 'top');
-
-    //windowPadding = windowPadding + barWidth + 50;
   }
 };
