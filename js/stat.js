@@ -38,20 +38,19 @@ window.renderStatistics = function (ctx, names, times) {
 
   function scale(arr, number) {
     var maxNumber = Math.max.apply(null, arr);
-    var scaledArr = arr.map(function (n) {
+    return arr.map(function (n) {
       return Math.ceil(n / maxNumber * number);
     });
-    return scaledArr;
   }
 
-  drawRect((windowLeftEdge + 10), (windowTopEdge + 10), windowWidth, windowHeight, 'rgba(0, 0, 0, 0.7)');
+  drawRect(windowLeftEdge + 10, windowTopEdge + 10, windowWidth, windowHeight, 'rgba(0, 0, 0, 0.7)');
   drawRect(windowLeftEdge, windowTopEdge, windowWidth, windowHeight, 'rgba(255, 255, 255, 1)');
   splitText(message);
 
   for (var i = 0; i < names.length; i++) {
-    var barLeftEdge = (windowLeftEdge + windowPadding);
-    var barBottomEdge = (windowBottomEdge - textPadding);
-    var barTopEdge = (barBottomEdge - scaleTimes[i]);
+    var barLeftEdge = windowLeftEdge + windowPadding;
+    var barBottomEdge = windowBottomEdge - textPadding;
+    var barTopEdge = barBottomEdge - scaleTimes[i];
     var color;
 
     if (names[i] === 'Вы') {
