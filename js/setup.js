@@ -4,6 +4,7 @@ var setup = document.querySelector('.setup');
 var setupOpen = document.querySelector('.setup-open-icon');
 var setupClose = setup.querySelector('.setup-close');
 var setupSubmit = setup.querySelector('.setup-submit');
+var setupUserName = setup.querySelector('.setup-user-name');
 var wizard = setup.querySelector('#wizard');
 var wizardCoat = wizard.querySelector('#wizard-coat');
 var wizardEyes = wizard.querySelector('#wizard-eyes');
@@ -62,12 +63,18 @@ setupClose.addEventListener('keydown', function (event) {
   }
 });
 
-setupSubmit.addEventListener('click', function () {
-  closeSetupDialog();
+setupSubmit.addEventListener('click', function (event) {
+  if (setupUserName.value.trim() === '' || setupUserName.value.trim().length > 50) {
+    event.preventDefault();
+  } else {
+    closeSetupDialog();
+  }
 });
 
 setupSubmit.addEventListener('keydown', function (event) {
-  if (isEnterPressed(event)) {
+  if (setupUserName.value.trim() === '' || setupUserName.value.trim().length > 50) {
+    event.preventDefault();
+  } else if (isEnterPressed(event)) {
     closeSetupDialog();
   }
 });
