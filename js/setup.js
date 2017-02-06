@@ -12,8 +12,6 @@ var fireballWrap = setup.querySelector('.setup-fireball-wrap');
 var coatColor = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
 var eyesColor = ['black', 'red', 'blue', 'yellow', 'green'];
 var fireballColor = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
-// var ESCAPE_KEY_CODE = 27;
-// var ENTER_KEY_CODE = 13;
 
 var openSetupDialog = function () {
   setup.classList.remove('invisible');
@@ -27,20 +25,6 @@ window.closeSetupDialog = function () {
   setupOpen.setAttribute('aria-pressed', false);
   document.removeEventListener('keydown', window.utils.escapeKeydowHandler);
 };
-
-// var isEnterPressed = function (event) {
-//   return event.keyCode === ENTER_KEY_CODE;
-// };
-
-// var isEscapePressed = function (event) {
-//   return event.keyCode === ESCAPE_KEY_CODE;
-// };
-
-// var escapeKeydowHandler = function (event) {
-//   if (isEscapePressed(event)) {
-//     closeSetupDialog();
-//   }
-// };
 
 setupOpen.addEventListener('click', function () {
   openSetupDialog();
