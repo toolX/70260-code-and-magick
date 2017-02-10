@@ -1,21 +1,16 @@
 'use strict';
 
 (function () {
-  window.colorizeElement = function (element, colors, property) {
+  window.getColorElement = function (element, colors, property, callback) {
     var currentColor = colors[0];
 
-    var setRandomColor = function () {
+    var getRandomColor = function () {
       while (window.utils.getRandomElementExcept(colors, currentColor)) {
         currentColor = window.utils.getRandomElement(colors);
       }
-      element.style[property] = currentColor;
+      return currentColor;
     };
 
-    element.addEventListener('click', setRandomColor);
-    element.addEventListener('keydown', function (event) {
-      if (window.utils.isEnterPressed(event)) {
-        setRandomColor();
-      }
-    });
+    return callback(getRandomColor(), property);
   };
 })();
