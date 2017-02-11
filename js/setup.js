@@ -76,7 +76,7 @@
     });
   });
 
-  wizardCoat.addEventListener('keydown', function () {
+  wizardCoat.addEventListener('keydown', function (event) {
     if (window.utils.isEnterPressed(event)) {
       window.getColorElement(wizardCoat, coatColor, 'fill', function (color, property) {
         wizardCoat.style[property] = color;
@@ -90,7 +90,7 @@
     });
   });
 
-  wizardEyes.addEventListener('keydown', function () {
+  wizardEyes.addEventListener('keydown', function (event) {
     if (window.utils.isEnterPressed(event)) {
       window.getColorElement(wizardEyes, eyesColor, 'fill', function (color, property) {
         wizardEyes.style[property] = color;
@@ -104,7 +104,7 @@
     });
   });
 
-  fireballWrap.addEventListener('keydown', function () {
+  fireballWrap.addEventListener('keydown', function (event) {
     if (window.utils.isEnterPressed(event)) {
       window.getColorElement(fireballWrap, fireballColor, 'background', function (color, property) {
         fireballWrap.style[property] = color;
