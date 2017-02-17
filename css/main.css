@@ -670,6 +670,16 @@ input[type=radio]:checked + .review-mark-label {
   border-right-width: 1px;
 }
 
+.setup-similar {
+  position: absolute;
+  bottom: 100px;
+  left: 0;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 50px;
+}
+
 .setup-submit {
   position: absolute;
   left: 50%;

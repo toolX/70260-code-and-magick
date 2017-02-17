@@ -20,6 +20,13 @@
     },
     getRandomElementExcept: function (array, elem) {
       return window.utils.getRandomElement(array) !== elem;
+    },
+    getRandomArray: function (array) {
+      var newArray = [];
+      for (var i = 0; i < 5; i++) {
+        newArray.push(window.utils.getRandomElement(array));
+      }
+      return newArray;
     }
   };
 })();
