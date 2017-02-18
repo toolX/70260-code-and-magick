@@ -35,9 +35,7 @@
   };
 
   var removeData = function () {
-    while (setupSimilar.firstChild) {
-      setupSimilar.removeChild(setupSimilar.firstChild);
-    }
+    setupSimilar.innerHTML = '';
   };
 
   var timeout = function () {
