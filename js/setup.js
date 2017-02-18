@@ -38,9 +38,15 @@
     setupSimilar.innerHTML = '';
   };
 
+  var renderWizards = function () {
+    timeout();
+  };
+
   var timeout = function () {
     removeData();
+    clearTimeout(timeout);
     setTimeout(function () {
+      removeData();
       renderData(wizards);
     }, 5000);
   };
@@ -106,15 +112,15 @@
   wizardCoat.addEventListener('click', function () {
     window.getColorElement(wizardCoat, coatColor, 'fill', function (color, property) {
       wizardCoat.style[property] = color;
-      timeout();
     });
+    renderWizards();
   });
 
   wizardCoat.addEventListener('keydown', function (event) {
     if (window.utils.isEnterPressed(event)) {
       window.getColorElement(wizardCoat, coatColor, 'fill', function (color, property) {
         wizardCoat.style[property] = color;
-        timeout();
+        renderWizards();
       });
     }
   });
@@ -122,7 +128,7 @@
   wizardEyes.addEventListener('click', function () {
     window.getColorElement(wizardEyes, eyesColor, 'fill', function (color, property) {
       wizardEyes.style[property] = color;
-      timeout();
+      renderWizards();
     });
   });
 
@@ -130,7 +136,7 @@
     if (window.utils.isEnterPressed(event)) {
       window.getColorElement(wizardEyes, eyesColor, 'fill', function (color, property) {
         wizardEyes.style[property] = color;
-        timeout();
+        renderWizards();
       });
     }
   });
@@ -138,7 +144,7 @@
   fireballWrap.addEventListener('click', function () {
     window.getColorElement(fireballWrap, fireballColor, 'background', function (color, property) {
       fireballWrap.style[property] = color;
-      timeout();
+      renderWizards();
     });
   });
 
@@ -146,7 +152,7 @@
     if (window.utils.isEnterPressed(event)) {
       window.getColorElement(fireballWrap, fireballColor, 'background', function (color, property) {
         fireballWrap.style[property] = color;
-        timeout();
+        renderWizards();
       });
     }
   });
