@@ -38,15 +38,12 @@
     setupSimilar.innerHTML = '';
   };
 
-  var renderWizards = function () {
-    timeout();
-  };
+  var renderDataTimeout;
 
-  var timeout = function () {
+  var throttle = function () {
+    clearTimeout(renderDataTimeout);
     removeData();
-    clearTimeout(timeout);
-    setTimeout(function () {
-      removeData();
+    renderDataTimeout = setTimeout(function () {
       renderData(wizards);
     }, 5000);
   };
@@ -113,14 +110,14 @@
     window.getColorElement(wizardCoat, coatColor, 'fill', function (color, property) {
       wizardCoat.style[property] = color;
     });
-    renderWizards();
+    throttle();
   });
 
   wizardCoat.addEventListener('keydown', function (event) {
     if (window.utils.isEnterPressed(event)) {
       window.getColorElement(wizardCoat, coatColor, 'fill', function (color, property) {
         wizardCoat.style[property] = color;
-        renderWizards();
+        throttle();
       });
     }
   });
@@ -128,7 +125,7 @@
   wizardEyes.addEventListener('click', function () {
     window.getColorElement(wizardEyes, eyesColor, 'fill', function (color, property) {
       wizardEyes.style[property] = color;
-      renderWizards();
+      throttle();
     });
   });
 
@@ -136,7 +133,7 @@
     if (window.utils.isEnterPressed(event)) {
       window.getColorElement(wizardEyes, eyesColor, 'fill', function (color, property) {
         wizardEyes.style[property] = color;
-        renderWizards();
+        throttle();
       });
     }
   });
@@ -144,7 +141,7 @@
   fireballWrap.addEventListener('click', function () {
     window.getColorElement(fireballWrap, fireballColor, 'background', function (color, property) {
       fireballWrap.style[property] = color;
-      renderWizards();
+      throttle();
     });
   });
 
@@ -152,7 +149,7 @@
     if (window.utils.isEnterPressed(event)) {
       window.getColorElement(fireballWrap, fireballColor, 'background', function (color, property) {
         fireballWrap.style[property] = color;
-        renderWizards();
+        throttle();
       });
     }
   });
