@@ -23,6 +23,7 @@
   var loadData = function () {
     window.load('https://intensive-javascript-server-myophkugvq.now.sh/code-and-magick/data', function (data) {
       wizards = data;
+      renderData();
     });
     return wizards;
   };
